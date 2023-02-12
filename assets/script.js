@@ -15,15 +15,15 @@ function createPassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-}
+
 
     var passwordLength = "";
     var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     var upperCase = ["A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
     var symbol = ["!","@","#","$","%","^","&","*","~"];
-    var numbers = ["0","1","2","3","4","5","6","7","8","9"]
+    var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 
-function generatePassword(){
+function generatePassword() {
   passwordLength = prompt("Please select the character length of your password, between 8 and 128 characters");
   console.log("Password character length " + passwordLength);
 
@@ -45,10 +45,10 @@ function generatePassword(){
 
   symbol = confirm("Lastly, do you want to include any special characters? ")
   console.log("~Special Characters~" + symbol);
-};
+}
 // if no character criteria is chosen. Go in order of Lowercase, upper case, numbers, and symbol last in case of running into cascading issue when clicking through
 
-if(!lowerCase && !upperCase && !numbers && !symbol) {
+  if(!lowerCase && !upperCase && !numbers && !symbol) {
   randomPassword = alert("Pick something if you want to generate a password fam");
 
 // if all 4 character criteria is chosen
@@ -73,7 +73,7 @@ console.log(randomPassword);
 
 // if 2 character chriteria is chosen
 
-} else if (lowerCase && upperCase) {
+}else if (lowerCase && upperCase) {
   randomPassword = lowerCase.concat(upperCase);
   console.log(randomPassword);
 
@@ -85,7 +85,7 @@ console.log(randomPassword);
 randomPassword = lowerCase.concat(symbol);
 console.log(randomPassword);
 
-}else if (upperCase && numbers) {
+} else if (upperCase && numbers) {
   randomPassword = upperCase.concat(numbers);
   console.log(randomPassword);
 
@@ -111,8 +111,20 @@ console.log(randomPassword);
   randomPassword = numbers;
   console.log(randomPassword);
 
-}else if (symbol) {
+} else if (symbol) {
   randomPassword = symbol;
   console.log(randomPassword);
 }
 
+var emptyPass = [];
+
+for (var i = 8; i < passwordLength; i++) {
+  var mypassword = randomPassword[Math.floor(Math.random() * randomPassword.length)];
+  emptyPass.push(mypassword);
+  console.log(mypassword);
+}
+
+var password = mypassword.join("");
+console.log("Look at this nifty little random password you created " + password);
+return password;
+}
