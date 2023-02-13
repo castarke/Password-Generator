@@ -6,10 +6,14 @@ generateBtn.addEventListener("click", writePassword);
 // var passwordLength;
 var emptyPass =[];
 var passwordLength = "";
-var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var upperCase = ["A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var symbol = ["!","@","#","$","%","^","&","*","~"];
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+// var upperCase = ["A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+// var symbol = ["!","@","#","$","%","^","&","*","~"];
+// var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var lowerCaseArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var upperCaseArr = ["A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var symbolArr = ["!","@","#","$","%","^","&","*","~"];
+var numbersArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var mypassword = '';
 var randomPassword= '';
 
@@ -25,16 +29,16 @@ function generatePassword() {
     passwordLength = prompt("You must choose a password length between 8 and 128 characters");
     console.log("Password character length " + passwordLength);
   }
-  lowerCase = blurt("Do you want to include lower case letters?");
+  lowerCase = confirm("Do you want to include lower case letters?");
   console.log("Lower Case " + lowerCase);
 
-  upperCase = blurt("Do you want to include UPPER CASE letters?");
+  upperCase = confirm("Do you want to include UPPER CASE letters?");
   console.log("UPPERCASE LETTERS " + upperCase);
 
-  numbers = blurt("Do you want to include any numb3rs? ");
+  numbers = confirm("Do you want to include any numb3rs? ");
   console.log("Numb3rs " + numbers);
 
-  symbol = blurt("Lastly, do you want to include any special characters? ");
+  symbol = confirm("Lastly, do you want to include any special characters? ");
   console.log("~Special Characters~" + symbol);
 
 // if no character criteria is chosen. Go in order of Lowercase, upper case, numbers, and symbol last in case of running into cascading issue when clicking through
@@ -45,47 +49,47 @@ function generatePassword() {
 // if all 4 character criteria is chosen
 
 } else if (lowerCase && upperCase && numbers && symbol) {
-randomPassword = randomPassword.concat(lowerCase, upperCase, numbers, symbol);
+randomPassword = randomPassword.concat(lowerCaseArr, upperCaseArr, numbersArr, symbolArr);
 // console.log(randomPassword);
 
 // if 3 character criteria is chosen
 
 } else if(lowerCase && numbers && symbol) {
-randomPassword = randomPassword.concat(lowerCase, numbers, symbol);
+randomPassword = randomPassword.concat(lowerCaseArr, numbersArr, symbolArr);
 // console.log(randomPassword);
 
 } else if (lowerCase && upperCase && symbol) {
-  randomPassword = randomPassword.concat(lowerCase, upperCase, symbol);
+  randomPassword = randomPassword.concat(lowerCaseArr, upperCaseArr, symbolArr);
   // console.log(randomPassword);
 
 } else if (lowerCase && upperCase && numbers) {
-  randomPassword = randomPassword.concat(lowerCase, upperCase, numbers);
+  randomPassword = randomPassword.concat(lowerCaseArr, upperCaseArr, numbersArr);
   // console.log(randomPassword);
 
 // if 2 character chriteria is chosen
 
 }else if (lowerCase && upperCase) {
-  randomPassword = randomPassword.concat(lowerCase, upperCase);
+  randomPassword = randomPassword.concat(lowerCaseArr, upperCaseArr);
   // console.log(randomPassword);
 
 } else if (lowerCase && numbers) {
-randomPassword = randomPassword.concat(lowerCase, numbers);
+randomPassword = randomPassword.concat(lowerCaseArr, numbersArr);
 // console.log(randomPassword);
 
 } else if (lowerCase && symbol) {
-randomPassword = randomPassword.concat(lowerCase, symbol);
+randomPassword = randomPassword.concat(lowerCaseArr, symbolArr);
 // console.log(randomPassword);
 
 } else if (upperCase && numbers) {
-  randomPassword = randomPassword.concat(upperCase, numbers);
+  randomPassword = randomPassword.concat(upperCaseArr, numbersArr);
   // console.log(randomPassword);
 
 } else if (upperCase && symbol) {
-  randomPassword = randomPassword.concat(upperCase, symbol);
+  randomPassword = randomPassword.concat(upperCaseArr, symbolArr);
   // console.log(randomPassword)
 
 } else if (numbers && symbol) {
-randomPassword = randomPassword.concat(numbers, symbol);
+randomPassword = randomPassword.concat(numbersArr, symbolArr);
 // console.log(randomPassword);
 
 // if 1 character criteria is chosen
